@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Body background similar to Spotify */
+body {
+  background-color: #181818;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+/* Container */
+section {
+  background-color: #282828;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+}
+section > * {
+  margin: 1rem;
+}
+/* Logo */
+section img {
+  display: block;
+  margin: 1rem auto;
+}
+/* Spotify-like button */
+.button {
+  background-color: #1db954;
+  color: black;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+/* Spotify-like button hover */
+.button:hover {
+  background-color: #1ed760;
+}
+/* Desktop */
+@media screen and (min-width: 600px){
+  section {
+    width: 50%;
+  }
+}
+/* Cellphone */
+@media screen and (max-width: 600px){
+  section {
+    width: 100%;
+  }
+}
+footer {
+  background-color: black;
+}
