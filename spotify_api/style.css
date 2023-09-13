@@ -10,23 +10,23 @@ body {
   color: white;
 }
 /* Container */
-section {
+.box-center {
   background-color: #282828;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 1rem auto;
 }
-section > * {
+.box-center > * {
   margin: 1rem;
 }
 /* Logo */
-section img {
+.box-center img {
   display: block;
   margin: 1rem auto;
 }
 /* Spotify-like button */
-.button {
+.spotify-button {
   background-color: #1db954;
   color: black;
   padding: 0.5rem 1rem;
@@ -36,18 +36,23 @@ section img {
   transition: background-color 0.2s ease;
 }
 /* Spotify-like button hover */
-.button:hover {
+.spotify-button:hover {
   background-color: #1ed760;
+}
+/* Text */
+.box-center p {
+  text-indent: 1rem;
+  text-align: justify;
 }
 /* Desktop */
 @media screen and (min-width: 600px){
-  section {
+  .box-center {
     width: 50%;
   }
 }
 /* Cellphone */
 @media screen and (max-width: 600px){
-  section {
+  .box-center {
     width: 100%;
   }
 }
