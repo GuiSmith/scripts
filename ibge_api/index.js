@@ -30,3 +30,17 @@ function showOption(text, value, parentId){
   element.value = value;
   parent.appendChild(element);
 }
+
+const submitButton = document.querySelector('#submit-button');
+submitButton.addEventListener('click',function(){
+  const name = returnValue('name-input');
+  const email = returnValue('email-input');
+  const state = returnValue('state-input');
+  const city = returnValue('city-input');
+
+});
+
+function returnValue(elementId){
+  const element = document.querySelector(`#${elementId}`);
+  return element.value;
+}
