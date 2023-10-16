@@ -12,7 +12,8 @@ main()
 .then(
   async () => {
     if(!user){
-      window.location.href = "../index.html";
+      //window.location.href = "../index.html";
+      console.log(user);
     }else{
       setContent('user-image',"src",user.images[0].url); //Setting navbar image
       setContent('user-name','text',user.display_name); //Setting name for header
