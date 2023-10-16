@@ -2,12 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial;
 }
 /* Body background similar to Spotify */
 body {
   background-color: #181818;
   font-family: Arial, sans-serif;
   color: white;
+}
+a {
+  text-decoration: none;
 }
 /* Container */
 .box-center {

@@ -1,10 +1,12 @@
 const clientId = '99111492024c4ccd84a141ba2f8277ee'; // Replace with your Spotify API client ID
 const redirectUri = 'https://guismith.github.io/projects/spotify_api/main/index.html'; // Replace with your redirect URI
+//Test redirect: http://localhost/projects/spotify_api/main/index.html
+
 var accessToken;
 
 // Function to handle user login
 function loginWithSpotify() {
-    const scopes = 'user-library-read user-read-playback-state user-read-currently-playing'; // Specify required scopes
+    const scopes = 'user-library-read user-read-playback-state user-read-currently-playing user-read-recently-played'; // Specify required scopes
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}&response_type=token`;
 
     // Redirect the user to the Spotify login page
@@ -18,7 +20,7 @@ if (window.location.hash) {
 
     if (accessToken) {
         // The user is authenticated, you can now make API requests
-        console.log('Logged in with access token:', accessToken);
+        //console.log('Logged in with access token:', accessToken);
         //Storing access token
         const expirationTime = new Date();
         expirationTime.setTime(expirationTime.getTime() + 60 * 60 * 1000);
@@ -50,27 +52,40 @@ function deleteAccessToken(){
     document.cookie = 'accessToken=; expires=' + pastDate.toUTCString() + '; path=/';
 }
 
-async function getSpotify(request, requestMethod, id = 1){
-    var link;
+async function getSpotify(request, requestMethod, id = 1, limit = 0){
+    var link = "https://api.spotify.com/v1/";
     switch (request){
         case "user":
-            link = "https://api.spotify.com/v1/me";
+            link += "me";
+            break;
+        case "recently-played":
+            link += "me/player/recently-played";
+            break;
+        case "currently-playing":
+            link += "me/player/currently-playing";
+            break;
+        case "track":
+            link += `tracks/${id}`;
             break;
         default:
             console.log("Request not specified");
             return;
     }
+    if(limit != 0){
+        link += `?limit=${limit}`;
+    }
     try {
         const response = await fetch(link, {
             method: requestMethod,
             headers: {  
-                Authorization: `Bearer ${getAccessToken()}`
+                Authorization: `Bearer ${getAccessToken()}`,
             }
         });
         if(response.status != 200){
             console.error(response);
         }else{
             const data = await response.json();
+            console.log(`${request} processed`);
             return data;
         }
     } catch(error){

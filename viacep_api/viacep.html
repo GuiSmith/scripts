@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            section {
+                width: 30%;
+                padding: 1rem;
+                margin: 2rem auto;
+                display: block;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                border-radius: 15px;
+            }
+            label {
+                font-size: 20px;
+            }
+            .row {
+                padding: 0;
+            }
+        </style>
+        <title>GET CEP</title>
+    </head>
+    <body>
+        <section>
+            <!-- Title -->
+            <div class="text-center">
+                <h2>Endereço</h2>
+                <h4>Cadastre seu CEP!</h4>
+            </div>
+            <!-- Form -->
+            <form action="#" autocomplete="off" class="row">
+                <!-- CEP -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="cep-input" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep-input" placeholder="Digite aqui..." title="Digite aqui seu CEP">
+                </div>
+                <!-- State -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="state-input" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="state-input" placeholder="Digite aqui..." title="Digite aqui seu estado">
+                </div>
+                <!-- City -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="city-input" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="city-input" placeholder="Digite aqui..." title="Digite aqui sua cidade">
+                </div>
+                <!-- Bairro -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="district-input" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="district-input" placeholder="Digite aqui..." title="Digite aqui seu bairro">
+                </div>
+                <!-- Endereço -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="address-input" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="address-input" placeholder="Digite aqui..." title="Digite aqui seu endereço">
+                </div>
+                <!-- Complemento -->
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="complement-input" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" id="complement-input" placeholder="Digite aqui..." title="Digite aqui seu complemento">
+                </div> 
+                <!-- Submit button -->
+                <div class="form-group col-lg-12 col-sm-12 text-right">
+                    <button class="btn btn-success">Enviar</button>
+                </div>
+            </form>
+        </section>
+        <script>
+            
+            const cep = document.getElementById("cep-input");
+            cep.addEventListener("keyup", async function(){
+                if(cep.value.length > 7){
+                    var data = await getAddress(cep.value);
+                    //State
+                    const stateInput = document.querySelector("#state-input");
+                    stateInput.value = data.uf;
+                    //City
+                    const cityInput = document.querySelector("#city-input");
+                    cityInput.value = data.localidade;
+                    //District
+                    const districtInput = document.querySelector("#district-input");
+                    districtInput.value = data.bairro;
+                    //Address
+                    const addressInput = document.querySelector("#address-input");
+                    addressInput.value = data.logradouro;
+                }
+                
+            });
+            async function getAddress(cep){
+
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                if(response.status != 200){
+                    console.error(response);
+                }else{
+                    const data = await response.json();
+                    return data;
+                }
+            }
+            const teste = document.getElementById("teste");
+        </script>
+    </body>
+</html>
