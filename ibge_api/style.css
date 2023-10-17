@@ -6,15 +6,34 @@ body {
   font-size: 20px;
 }
 
+article {
+    padding: 1rem;
+}
+
+article p {
+    text-indent: 1rem;
+    text-align: justify;
+}
+article li {
+    margin-bottom: 1rem;
+}
+
 @media screen and (min-width: 600px){
   section {
     width: 70%;
     margin: 0 auto;
+  }
+  article {
+      width: 65%;
+      margin: 0 auto;
   }
 }
 
 @media screen and (max-width: 600px){
   section {
     width: 100%;
+  }
+  article {
+      width: 100%;
   }
 }

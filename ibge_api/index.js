@@ -1,6 +1,7 @@
 fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
 .then(data => data.json())
-.then(states => {
+    .then(states => {
+    //Exibicação de dados com repetição e sem filtros (estados gerais)
   states.forEach(function(state){
     showOption(state.nome, state.sigla,"state-input");
   });
@@ -10,18 +11,33 @@ fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
     cities.forEach(function(city){
       city.remove();
     });
-    fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios`)
+    fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${currentState.value}/municipios`)
     .then(data => data.json())
-    .then(cities => {
+        .then(cities => {
+        //Exibição de dados com repetição e com filtro (municípios de um estado)
       cities.forEach(function(city){
-        if(city.microrregiao.mesorregiao.UF.sigla == currentState.value){
-          showOption(city.nome,city.nome,"city-input");
-        }
+        showOption(city.nome,city.nome,"city-input");
       });
-      // console.log(cidades[0].microrregiao.mesorregiao.UF.sigla);
     });
   });
 });
+
+//Dica de Estado
+fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/35")
+    .then(data => data.json())
+    .then(state => {
+        //Exibição de dados sem repetição e com filtro (estado de São Paulo)
+        document.querySelector('#state-tip').textContent = state.nome;
+});
+
+//Dica de cidade
+fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios/3534401")
+    .then(data => data.json())
+    .then(city => {
+        //Exibição de dados sem repetição e com filtro (cidade de Osasco)
+        document.querySelector('#city-tip').textContent = city.nome;
+    });
+
 
 function showOption(text, value, parentId){
   const parent = document.getElementById(parentId);
@@ -29,18 +45,4 @@ function showOption(text, value, parentId){
   element.textContent = text;
   element.value = value;
   parent.appendChild(element);
-}
-
-const submitButton = document.querySelector('#submit-button');
-submitButton.addEventListener('click',function(){
-  const name = returnValue('name-input');
-  const email = returnValue('email-input');
-  const state = returnValue('state-input');
-  const city = returnValue('city-input');
-
-});
-
-function returnValue(elementId){
-  const element = document.querySelector(`#${elementId}`);
-  return element.value;
 }
