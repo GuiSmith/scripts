@@ -1,0 +1,2 @@
+Este pequeníssimo website é um projeto pessoal feito com o objetivo de entender melhor a extração de dados de planilhas, seja XLSX, XLS ou CSV. Ao clicar no botão abaixo, é possível carregar um arquivo de planilha para visualiza-lo em seguida.
+A biblioteca SheetJS foi utilizada para extrair dados da planilha em forma de objeto. Em seguida, um for in é usado para iterar entre as propriedades (células) do objeto (planilha) para resultar em uma lista de linhas da planilha.
