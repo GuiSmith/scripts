@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: rgb(122, 115, 100);
+    color: white;
+}
+.titles {
+    text-align: center;
+}
+header {
+    width: 80%;
+    margin: 0 auto;
+}
+header p {
+    text-indent: 1rem;
+    text-align: justify;
+    font-size: 20px;
+}
+section {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+label img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: darkgrey;
+    transition: all 0.5s linear;
+}
+label img:hover {
+    background-color: lightgrey;
+}
+#file-input {
+    display: none;
+}
+table {
+    border: solid 2px black;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+tr {
+    border: solid 1px black;
+    background-color: darkgrey;
+}
+tr:hover {
+    background-color: grey;
+}
+tr * {
+    padding: 0.5em;
+}
+th {
+    background-color: grey;
+}

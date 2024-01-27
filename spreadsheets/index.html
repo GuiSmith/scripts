@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel File Processing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="titles">
+            <h1>Boas vindas!</h1>
+            <h2>Documentação e Explicação</h2>
+        </div>
+        <p>
+            Este pequeníssimo website é um projeto pessoal feito com o objetivo de entender melhor a extração de dados de planilhas, seja XLSX, XLS ou CSV. Ao clicar no botão abaixo, é possível carregar um arquivo de planilha para visualiza-lo em seguida.
+        </p>
+        <p>
+            A biblioteca SheetJS foi utilizada para extrair dados da planilha em forma de objeto. Em seguida, um <code>for in</code> é usado para iterar entre as propriedades (células) do objeto (planilha) para resultar em uma lista de linhas da planilha.  
+        </p>
+    </header>
+    <section>
+        <label for="file-input">
+            <img src="upload.png" alt="upload">
+        </label>
+        <input type="file" id="file-input" accept=".xls, .xlsx">
+        <div id="output"></div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src = 'script.js'></script>
+	<script>
+	  // Example of how to use the file reader component
+        document.getElementById('file-input').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            readFile(file, (sheet) => {
+                document.querySelector('#output').appendChild(createTable(sheet));
+            });
+        });
+	</script>
+</body>
+</html>
