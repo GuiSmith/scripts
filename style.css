@@ -34,6 +34,7 @@ p {
 .card p {
     color: #666;
     margin-bottom: 20px;
+    text-indent: 1rem;
 }
 .btn-container {
     /* text-align: center; */
