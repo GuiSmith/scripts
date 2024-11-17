@@ -1,3 +1,24 @@
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Documento carregado");
+    const darkModeButton = document.querySelector('.dark-mode-checkbox');
+    if (darkModeButton) {
+        darkModeButton.addEventListener('click',darkMode);
+        console.log("Modo noturno adicionado");
+    }else{
+        console.log("Não foi possível adicionar modo noturno");
+    }
+});
+
+function darkMode(event){
+    console.log('modo noturno chamado');
+    if (event.target.checked) {
+        console.log("Modo noturno ativado");
+        document.body.classList.add('dark-mode');
+    } else {
+        console.log("Modo noturno desativado");
+        document.body.classList.remove('dark-mode');
+    }
+}
 
 showScripts();
 showFooter();
@@ -66,13 +87,5 @@ async function showFooter() {
         document.body.innerHTML += "<p>Não foi possível inserir o Rodapé do site, clique <a href = ''>aqui</a> para ter acesso aos dados do desenvolvedor </p>"
         console.log("Não foi possível inserir o Rodapé do site, veja o motivo abaixo");
         console.error(error);
-    }
-}
-
-function darkMode(){
-    if (event.target.checked) {
-        document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
     }
 }
