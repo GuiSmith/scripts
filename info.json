@@ -1,0 +1,82 @@
+[
+    {
+        "title": "IBGE API",
+        "description": "This API provides comprehensive data on states, cities, and even districts across Brazil, making it an ideal resource for populating databases and creating dynamic datalists.",
+        "buttons": [
+            {
+                "text": "Check Code",
+                "class": "btn btn-secondary",
+                "url": "https://github.com/GuiSmith/scripts/tree/master/ibge_api"
+            },
+            {
+                "text": "View Page",
+                "class": "btn btn-success",
+                "url": "ibge_api/"
+            }
+        ]
+    },
+    {
+        "title": "VIACEP API",
+        "description": "The VIACEP API is a valuable tool for developers seeking address information in Brazil. By simply providing a CEP (Postal Code), developers can easily retrieve detailed address data, making it perfect for enhancing form functionality.",
+        "buttons": [
+            {
+                "text": "Check Code",
+                "class": "btn btn-secondary",
+                "url": "https://github.com/GuiSmith/scripts/tree/master/viacep_api"
+            },
+            {
+                "text": "View Page",
+                "class": "btn btn-success",
+                "url": "viacep_api/"
+            }
+        ]
+    },
+    {
+        "title": "Sheet JS",
+        "description": "Sheet JS is a powerful library designed to extract data from spreadsheets. With its capabilities, importing spreadsheet information into databases becomes seamless, streamlining data management processes.",
+        "buttons": [
+            {
+                "text": "Check Code",
+                "class": "btn btn-secondary",
+                "url": "https://github.com/GuiSmith/scripts/tree/master/spreadsheets"
+            },
+            {
+                "text": "View Page",
+                "class": "btn btn-success",
+                "url": "spreadsheets/"
+            }
+        ]
+    },
+    {
+        "title": "Cookie Management",
+        "description": "This script provides functionality for creating, retrieving, and deleting cookies on a webpage. It allows users to save cookies with custom values, search for a specific cookie by name, list all stored cookies, and delete individual or all cookies.",
+        "buttons": [
+            {
+                "text": "Check Code",
+                "class": "btn btn-secondary",
+                "url": "https://github.com/GuiSmith/scripts/tree/master/cookie"
+            },
+            {
+                "text": "View Page",
+                "class": "btn btn-success",
+                "url": "cookie/"
+            }
+        ]
+    },
+    {
+        "title": "Form to JSON",
+        "description": "This script has the functionality of filling a form and downloading the content of the form as a JSON file",
+        "buttons": [
+            {
+                "text": "View Code",
+                "class": "btn btn-secondary",
+                "url": "https://github.com/GuiSmith/scripts/tree/master/form_to_json"
+            },
+            {
+                "text": "View Page",
+                "class": "btn btn-success",
+                "url": "form_to_json/"
+            }
+        ]
+    }
+]

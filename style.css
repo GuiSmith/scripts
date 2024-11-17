@@ -5,6 +5,7 @@ body {
     background-color: #f4f4f4;
 }
 .container {
+    position: relative;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -45,6 +46,9 @@ p {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
+
+/* Footer */
+
 footer {
     width: 100%;
     padding: 0.5rem 1rem;
@@ -66,4 +70,102 @@ footer img {
 }
 footer img:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode {
+    background-color: #121212; /* Dark background for the page */
+    color: #e0e0e0; /* Light text color for readability */
+}
+
+/* Dark Mode */
+
+.dark-mode .container {
+    background-color: #1e1e1e; /* Darker container background */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle light shadow */
+}
+
+.dark-mode h1 {
+    color: #ffffff; /* Pure white for headers */
+}
+
+.dark-mode p {
+    color: #b0b0b0; /* Softer gray for paragraphs */
+}
+
+.dark-mode .card {
+    background-color: #2c2c2c; /* Slightly lighter dark tone for cards */
+    border: solid 1px #3a3a3a; /* Subtle border to separate cards */
+}
+
+.dark-mode .card h2 {
+    color: #ffffff; /* White headers inside cards */
+}
+
+.dark-mode .card p {
+    color: #cfcfcf; /* Lighter text inside cards */
+}
+
+.dark-mode .btn-container .btn {
+    color: #e0e0e0; /* Light button text */
+}
+
+.dark-mode .btn-container .btn:hover {
+    color: #ffffff; /* Pure white on hover */
+}
+
+.dark-mode footer {
+    background-color: #181818; /* Dark footer */
+    color: #cccccc; /* Softer light text */
+}
+
+.dark-mode footer a {
+    color: #b0c4de; /* Light steel blue for links */
+}
+
+.dark-mode footer a:hover {
+    color: #ffffff; /* White on hover */
+}
+
+.dark-mode footer img {
+    border: solid 1px #cccccc; /* Softer border for images */
+    background-color: transparent; /* Match dark theme */
+}
+
+.dark-mode footer img:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/*Dark mode button*/
+.dark-mode-checkbox {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-checkbox::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-checkbox:checked {
+    background-color: #4CAF50;
+}
+
+.dark-mode-checkbox:checked::before {
+    transform: translateX(25px);
 }
