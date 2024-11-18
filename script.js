@@ -1,25 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Documento carregado");
-    const darkModeButton = document.querySelector('.dark-mode-checkbox');
-    if (darkModeButton) {
-        darkModeButton.addEventListener('click', darkMode);
+document.addEventListener('DOMContentLoaded', main);
+
+async function main() {
+    await showScripts();
+    await showFooter();
+    darkMode();
+}
+
+function darkMode() {
+    try {
+        const darkModeButton = document.querySelector(".dark-mode-checkbox");
+        //console.log('modo noturno chamado');
+        darkModeButton.addEventListener('click', () => {
+            console.log("clicked");
+            document.body.classList.toggle("dark-mode");
+        });
         console.log("Modo noturno adicionado");
-    } else {
-        console.log("Não foi possível adicionar modo noturno");
-    }
-
-    showScripts();
-    showFooter();
-});
-
-function darkMode(event) {
-    console.log('modo noturno chamado');
-    if (event.target.checked) {
-        console.log("Modo noturno ativado");
-        document.body.classList.add('dark-mode');
-    } else {
-        console.log("Modo noturno desativado");
-        document.body.classList.remove('dark-mode');
+    } catch (error) {
+        console.log("Não foi possível adicionar modo noturno, veja o erro a seguir");
+        console.error(error);
     }
 }
 
@@ -89,3 +87,4 @@ async function showFooter() {
         console.error(error);
     }
 }
+
